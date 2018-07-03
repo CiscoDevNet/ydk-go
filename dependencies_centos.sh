@@ -11,7 +11,8 @@ ln -sf /opt/rh/devtoolset-4/root/usr/bin/gcc /usr/bin/gcc
 ln -sf /opt/rh/devtoolset-4/root/usr/bin/g++ /usr/bin/g++
 
 echo "Installing Golang version 1.9.2"
-wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz &> /dev/null
 tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
+ln -s /usr/local/go/bin/go /usr/bin/go
 
 sudo easy_install pip
